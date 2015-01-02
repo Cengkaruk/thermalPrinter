@@ -661,4 +661,11 @@ describe('Printer', function() {
 			});
 		});		
 	});
+
+	describe('Printer.cutPaper()', function() {
+		it('should add cut paper commands in the queue', function(done) {
+			var expected = [new Buffer("\n\n\n\n\n"), 10, 27, 105];
+			verifyCommand(expected, 'cutPaper', 0, done);
+		});
+	});
 });

@@ -383,4 +383,12 @@ Printer.prototype.barcode = function(type, data){
   return this.writeCommands(commands);
 };
 
+Printer.prototype.cutPaper = function () {
+  // Create little whitespace at the bottom
+  var whitespace = [new Buffer("\n\n\n\n\n"), 10];
+  this.writeCommands(whitespace);
+  var commands = [27, 105];
+  return this.writeCommands(commands);
+};
+
 module.exports = Printer;
