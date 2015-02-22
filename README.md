@@ -1,19 +1,8 @@
-# Control the Adafruit/Sparkfun thermal printer from node.js
-[![Build Status](https://travis-ci.org/xseignard/thermalPrinter.svg)](https://travis-ci.org/xseignard/thermalPrinter) [![Code Climate](https://codeclimate.com/github/xseignard/thermalPrinter/coverage.png)](https://codeclimate.com/github/xseignard/thermalPrinter)
+# Nodejs/IOjs Library for ESC/POS Thermal Printer
+[![Build Status](https://travis-ci.org/adzymaniac/thermalPrinter.svg)](https://travis-ci.org/adzymaniac/thermalPrinter)
 
 
-Largely inspired by http://electronicfields.wordpress.com/2011/09/29/thermal-printer-dot-net/
-
-You can print images, but they need to be 384px wide.
-
-It's a fluent API, so you can chain functions, but don't forget to call `print` at the end to actually print something!
-
-## Crappy schematics
-
-You'll need an USB/Serial converter.
-
-![schematics](/images/schema.png)
-
+Forked from [Adafruit/Sparkfun based Thermal Printer](https://github.com/xseignard/thermalPrinter)
 
 ## Usage
 - install with `npm install thermalprinter --save` 
@@ -51,6 +40,6 @@ serialPort.on('open',function() {
 });
 ```
 
-## Demo
+## License
 
-![demo](/images/demo.gif)
+Original's repository does not include any license information. [This license](LICENSE) only for what changed from this repository.
