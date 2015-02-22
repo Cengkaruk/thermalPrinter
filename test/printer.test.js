@@ -673,11 +673,11 @@ describe('Printer', function() {
 		it('should add the print QRCode commands in the queue', function(done) {
 			var errorCorrection = 49;
 			var moduleSize = 8;
-			var expected = [29, 40, 107, text.length + 3, 0, 49, 80, 48, new Buffer('test'),
+			var expected = [29, 40, 107, 'test'.length + 3, 0, 49, 80, 48, new Buffer('test'),
 				29, 40, 107, 3, 0, 49, 69, errorCorrection,
 				29, 40, 107, 3, 0, 49, 67, moduleSize,
 				29, 40, 107, 3, 0, 49, 81, 48];
-			verifyCommand(expected, 'printLine', ['test', errorCorrection, moduleSize], done);
+			verifyCommand(expected, 'printQR', ['test', errorCorrection, moduleSize], done);
 		});
 	});
 });

@@ -20,7 +20,7 @@ coverage:
 	$(ISTANBUL) cover --dir ./reports $(_MOCHA) -- -R spec $(TESTS)
 
 codeclimate:
-	CODECLIMATE_REPO_TOKEN=81648f70a46f19c1b4d5c9cf7f53fa40969af62284554621c22d7d038d2c637e codeclimate < reports/lcov.info
+	CODECLIMATE_REPO_TOKEN=1a456f9c873723888aab613bbc1f83611e74b1b44eeb454859cde1ff526bff51 codeclimate < lcov.info
 
 ci: clean jshint test coverage codeclimate
 
