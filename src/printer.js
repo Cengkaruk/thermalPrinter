@@ -411,6 +411,6 @@ Printer.prototype.printQR = function(text, errorCorrection, moduleSize) {
   // Print - function 180
   var printCommands = [29, 40, 107, 3, 0, 49, 81, 48];
   return this.writeCommands(printCommands);
-}
+};
 
 module.exports = Printer;
