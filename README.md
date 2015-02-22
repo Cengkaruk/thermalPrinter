@@ -1,5 +1,5 @@
 # Nodejs/IOjs Library for ESC/POS Thermal Printer
-[![Build Status](https://travis-ci.org/adzymaniac/thermalPrinter.svg)](https://travis-ci.org/adzymaniac/thermalPrinter)[![Test Coverage](https://codeclimate.com/github/adzymaniac/thermalPrinter/badges/coverage.svg)](https://codeclimate.com/github/adzymaniac/thermalPrinter)
+[![Build Status](https://travis-ci.org/adzymaniac/thermalPrinter.svg)](https://travis-ci.org/adzymaniac/thermalPrinter) [![Test Coverage](https://codeclimate.com/github/adzymaniac/thermalPrinter/badges/coverage.svg)](https://codeclimate.com/github/adzymaniac/thermalPrinter)
 
 
 Forked from [Adafruit/Sparkfun based Thermal Printer](https://github.com/xseignard/thermalPrinter)
