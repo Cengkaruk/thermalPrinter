@@ -204,9 +204,9 @@ Printer.prototype.printImage = function(path) {
 	var file = fs.readFileSync(path);
 	var img = new Image();
 	img.src = file;
-	if (img.width != 384 || img.height > 65635) {
-		throw new Error('Image width must be 384px, height cannot exceed 65635px.');
-	}
+	// if (img.width != 384 || img.height > 65635) {
+	// 	throw new Error('Image width must be 384px, height cannot exceed 65635px.');
+	// }
 	var canvas = new Canvas(img.width, img.height);
 	var ctx = canvas.getContext('2d');
 	ctx.drawImage(img, 0, 0, img.width, img.height);
@@ -390,5 +390,33 @@ Printer.prototype.cutPaper = function () {
   var commands = [27, 105];
   return this.writeCommands(commands);
 };
+
+// Print QRCode
+// errorCorrection:
+//   48 = level L / 7% recovery capacity.
+//   49 = level M / 15% recovery capacity.
+//   50 = level Q / 25% recovery capacity.
+//   51 = level H / 30% recovery capacity.
+// moduleSize:
+//   1<= n <= 16
+Printer.prototype.printQR = function(text, errorCorrection, moduleSize) {
+  // Store data - function 180
+  var storeCommands = [29, 40, 107, text.length + 3, 0, 49, 80, 48, new Buffer(text)];
+  this.writeCommands(storeCommands);
+
+   
+  // Error correction - function 169
+  // The degree of error correction. (48 <= n <= 51)
+  var errorCommands = [29, 40, 107, 3, 0, 49, 69, errorCorrection];
+  this.writeCommands(errorCommands);
+
+  // Size of module - function 167
+  var sizeCommands = [29, 40, 107, 3, 0, 49, 67, moduleSize];
+  this.writeCommands(sizeCommands);
+
+  // Print - function 180
+  var printCommands = [29, 40, 107, 3, 0, 49, 81, 48];
+  return this.writeCommands(printCommands);
+}
 
 module.exports = Printer;
